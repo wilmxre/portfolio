@@ -11,6 +11,7 @@ body {
 
 nav {
   display: grid;
+  grid-template-rows: repeat(5, 1fr);
   position: fixed;
   height: 100vh;
   align-items: center;
@@ -23,4 +24,34 @@ nav a {
   padding: 4px;
   font-size: 1.2rem;
   text-transform: uppercase;
+}
+
+.container-1 {
+  background-color: #455;
+  display: grid;
+  grid-area: 1 / 2 / 2 / -1;
+}
+
+.container-2 {
+  background-color: #f38;
+  display: grid;
+  grid-area: 2 / 2 / 3 / -1;
+}
+
+.container-3 {
+  background-color: #629;
+  display: grid;
+  grid-area: 3 / 2 / 4 / -1;
+}
+
+.container-4 {
+  background-color: #5f1;
+  display: grid;
+  grid-area: 4 / 2 / 5 / -1;
+}
+
+.container-5 {
+  background-color: #39f;
+  display: grid;
+  grid-area: 5 / 2 / 6 / -1;
 }
