@@ -19,4 +19,25 @@ const changeActive = () => {
   };
 }
 
-changeActive()
+
+const reveal = () => {
+  let reveals = document.querySelectorAll(".reveal");
+
+  for (let i = 0; i < reveals.length; i++) {
+    let height = window.innerHeight;
+    let elementTop = reveals[i].getBoundingClientRect().top;
+    let visible = 150;
+
+    if (elementTop < height - visible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+window.onload = () => {
+  window.addEventListener("scroll", reveal);
+  changeActive();
+  reveal();
+}
