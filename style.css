@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -24,6 +25,15 @@ nav a {
   padding: 4px;
   font-size: 1.2rem;
   text-transform: uppercase;
+}
+
+nav a:hover,
+nav a.active {
+  color: black;
+}
+
+section {
+  min-height: 100vh;
 }
 
 #wilmxre {
@@ -55,4 +65,16 @@ nav a {
   background-color: #39f;
   display: grid;
   grid-area: 5 / 2 / 6 / -1;
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
 }
