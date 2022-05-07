@@ -2,3 +2,25 @@
   padding: 0;
   margin: 0;
 }
+
+body {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: repeat(5, 100vh);
+}
+
+nav {
+  display: grid;
+  position: fixed;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  transform: rotate(-90deg);
+  padding: 4px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
