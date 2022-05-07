@@ -1,6 +1,8 @@
 let section = document.querySelectorAll("section");
 let nav = document.querySelectorAll("nav a");
 
+
+
 const changeActive = () => {
   window.onscroll = () => {
     section.forEach((child) => {
@@ -12,13 +14,30 @@ const changeActive = () => {
       if (top >= offset && top < offset + height) {
         nav.forEach((child) => {
           child.classList.remove("active");
-          document.querySelector("nav a[href*=" + id + "]").classList.add("active");
+          document.querySelector("nav a[class*=" + id + "]").classList.add("active");
         });
       }
     });
   };
 }
 
+const scrollInto = () => {
+  nav.forEach((navElement) => {
+    navElement.addEventListener('click', (e) => {
+      let hash = e.target.classList[0];
+
+      section.forEach((sectionElement => {
+        if (sectionElement.id === hash) {
+          sectionElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      }));
+
+    })
+  });
+
+}
 
 const reveal = () => {
   let reveals = document.querySelectorAll(".reveal");
@@ -37,7 +56,8 @@ const reveal = () => {
 }
 
 window.onload = () => {
-  window.addEventListener("scroll", reveal);
   changeActive();
-  reveal();
+  scrollInto();
+  // reveal();
+  // window.addEventListener("scroll", reveal);
 }
