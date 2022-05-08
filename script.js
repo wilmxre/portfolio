@@ -1,6 +1,7 @@
 let section = document.querySelectorAll('section');
 let nav = document.querySelectorAll('nav a');
 
+// change active section on navigation bar
 const changeActive = () => {
   window.onscroll = () => {
     section.forEach((sectionChild) => {
@@ -19,6 +20,7 @@ const changeActive = () => {
   };
 }
 
+// scroll to specific section
 const scrollInto = () => {
   nav.forEach((navElement) => {
     navElement.addEventListener('click', (e) => {
@@ -36,7 +38,7 @@ const scrollInto = () => {
   });
 }
 
-
+// reveal elements on active section
 const reveal = () => {
   let reveals = document.querySelectorAll('.reveal');
 
@@ -60,6 +62,7 @@ const KEY_DOWN = 'ArrowDown';
 const KEY_RIGHT = 'ArrowRight';
 const SPACE = ' ';
 
+// scroll on page with arrows or space
 const scrollWithKeys = () => {
   window.addEventListener('keydown', (e) => {
     e.preventDefault();
@@ -92,6 +95,7 @@ const scrollWithKeys = () => {
   });
 }
 
+// scroll to specific section with the mousewheel
 const scrollWithWheel = (e) => {
   let delta = 0;
   if (e.wheelDelta) {
