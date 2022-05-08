@@ -33,7 +33,8 @@ nav a {
   text-transform: uppercase;
   color: rgb(250, 250, 249, .5);
   transition: all 300ms linear;
-  /* letter-spacing: 1px; */
+  letter-spacing: .5px;
+  cursor: pointer;
 }
 
 nav a:hover,
