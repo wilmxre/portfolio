@@ -1,18 +1,18 @@
-let section = document.querySelectorAll("section");
-let nav = document.querySelectorAll("nav a");
+let section = document.querySelectorAll('section');
+let nav = document.querySelectorAll('nav a');
 
 const changeActive = () => {
   window.onscroll = () => {
     section.forEach((sectionChild) => {
-      let id = sectionChild.getAttribute("id");
+      let id = sectionChild.getAttribute('id');
       let height = sectionChild.offsetHeight;
       let top = window.scrollY;
       let offset = sectionChild.offsetTop - 150;
 
       if (top >= offset && top < offset + height) {
         nav.forEach((navChild) => {
-          navChild.classList.remove("active");
-          document.querySelector("nav a[class*=" + id + "]").classList.add("active");
+          navChild.classList.remove('active');
+          document.querySelector('nav a[class*=' + id + ']').classList.add('active');
         });
       }
     });
@@ -38,7 +38,7 @@ const scrollInto = () => {
 
 
 const reveal = () => {
-  let reveals = document.querySelectorAll(".reveal");
+  let reveals = document.querySelectorAll('.reveal');
 
   for (let i = 0; i < reveals.length; i++) {
     let height = window.innerHeight;
@@ -47,50 +47,55 @@ const reveal = () => {
 
     // > 0 for removing active class, when you scroll pass the section (before it only removed it when you scrolled up pass the section)
     if (elementTop < height - visible && elementTop > 0) {
-      reveals[i].classList.add("active");
+      reveals[i].classList.add('active');
     } else {
-      reveals[i].classList.remove("active");
+      reveals[i].classList.remove('active');
     }
   }
-}
-
-window.onload = () => {
-  changeActive();
-  scrollInto();
-  reveal();
-  window.addEventListener("scroll", reveal);
 }
 
 const KEY_UP = 'ArrowUp';
 const KEY_LEFT = 'ArrowLeft';
 const KEY_DOWN = 'ArrowDown';
 const KEY_RIGHT = 'ArrowRight';
+const SPACE = ' ';
 
-window.addEventListener('keydown', (e) => {
-  e.preventDefault();
-  section.forEach((item, index) => {
-    if (item.childNodes[1].classList.length == 3) {
-      switch (e.key) {
-        case KEY_UP:
-        case KEY_LEFT:
-          if (index > 0) {
-            section[index - 1].scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-          break;
-
-        case KEY_DOWN:
-        case KEY_RIGHT:
-          if (index < section.length - 1) {
-            section[index + 1].scrollIntoView({
-              behavior: 'smooth'
-            });
+const scrollWithKeys = () => {
+  window.addEventListener('keydown', (e) => {
+    e.preventDefault();
+    section.forEach((item, index) => {
+      if (item.childNodes[1].classList.length == 3) {
+        switch (e.key) {
+          case KEY_UP:
+          case KEY_LEFT:
+            if (index > 0) {
+              section[index - 1].scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
             break;
-          }
-        default:
-      }
-    }
 
-  })
-});
+          case KEY_DOWN:
+          case KEY_RIGHT:
+          case SPACE:
+            if (index < section.length - 1) {
+              section[index + 1].scrollIntoView({
+                behavior: 'smooth'
+              });
+              break;
+            }
+          default:
+        }
+      }
+
+    })
+  });
+}
+
+window.onload = () => {
+  changeActive();
+  scrollInto();
+  scrollWithKeys();
+  reveal();
+  window.addEventListener('scroll', reveal);
+}
