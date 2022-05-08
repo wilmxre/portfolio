@@ -88,7 +88,40 @@ const scrollWithKeys = () => {
         }
       }
 
-    })
+    });
+  });
+}
+
+const scrollWithWheel = (e) => {
+  let delta = 0;
+  if (e.wheelDelta) {
+    delta = e.wheelDelta;
+  } else {
+    delta = e.deltaY * -1;
+  }
+
+  e.preventDefault();
+
+  section.forEach((item, index) => {
+    if (item.childNodes[1].classList.length == 3) {
+      switch (true) {
+        case delta > 0:
+          if (index > 0) {
+            section[index - 1].scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+          break;
+        case delta < 0:
+          if (index < section.length - 1) {
+            section[index + 1].scrollIntoView({
+              behavior: 'smooth'
+            });
+            break;
+          }
+        default:
+      }
+    }
   });
 }
 
@@ -98,4 +131,5 @@ window.onload = () => {
   scrollWithKeys();
   reveal();
   window.addEventListener('scroll', reveal);
+  window.addEventListener('wheel', scrollWithWheel, { passive: false });
 }
