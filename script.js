@@ -73,20 +73,21 @@ window.addEventListener('keydown', (e) => {
       switch (e.key) {
         case KEY_UP:
         case KEY_LEFT:
-          console.log(index)
-          section[index - 1].scrollIntoView({
-            behavior: 'smooth'
-          });
+          if (index > 0) {
+            section[index - 1].scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
           break;
 
         case KEY_DOWN:
         case KEY_RIGHT:
-          console.log(index)
-          section[index + 1].scrollIntoView({
-            behavior: 'smooth'
-          });
-          break;
-
+          if (index < section.length - 1) {
+            section[index + 1].scrollIntoView({
+              behavior: 'smooth'
+            });
+            break;
+          }
         default:
       }
     }
