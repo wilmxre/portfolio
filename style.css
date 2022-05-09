@@ -33,6 +33,7 @@ nav {
   align-items: center;
   justify-items: center;
   background-color: var(--nav-color);
+  z-index: 999;
 }
 
 nav a {
@@ -164,6 +165,50 @@ section {
 
 /* <-- Description */
 
+/* Animations --> */
+
+.slide-in-left {
+  animation:
+    slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3500ms both;
+}
+
+.slide-in-bottom {
+  animation:
+    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2500ms both;
+}
+
+.slide-in-bottom-2 {
+  animation:
+    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3000ms both;
+}
+
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* <-- Animations */
+
 #work {
   background-color: #f38;
   display: grid;
@@ -188,6 +233,11 @@ section {
   display: grid;
   grid-area: 5 / 2 / 6 / -1;
 }
+
+
+/* ===================
+    U T I L I T Y
+=================== */
 
 .reveal {
   position: relative;
