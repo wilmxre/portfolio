@@ -60,6 +60,9 @@ section {
   min-height: 100vh;
 }
 
+/* ====================
+    W I L M X R E
+==================== */
 #wilmxre {
   background-color: var(--wilmxre-color);
   display: grid;
@@ -76,24 +79,7 @@ section {
   user-select: none;
 }
 
-#wilmxre .hero-letters {
-  display: flex;
-  gap: 20px;
-  color: var(--hero-color);
-  letter-spacing: -.1em;
-  font-size: 6rem;
-}
-
-.hero-letters .letter {
-  color: rgb(2, 1, 34, .85);
-  transition: color .2s;
-  font-weight: 700;
-}
-
-.hero-letters .letter:hover {
-  color: rgb(0, 0, 0, 1);
-  transition: color .2s;
-}
+/* Introduction --> */
 
 #wilmxre h2 {
   @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
@@ -135,7 +121,34 @@ section {
   }
 }
 
-#wilmxre h3:hover {
+/* <-- Introduction */
+
+/* Name --> */
+
+#wilmxre .hero-letters {
+  display: flex;
+  gap: 20px;
+  color: var(--hero-color);
+  letter-spacing: -.1em;
+  font-size: 6rem;
+}
+
+.hero-letters .letter {
+  color: rgb(2, 1, 34, .85);
+  transition: color .2s;
+  font-weight: 700;
+}
+
+.hero-letters .letter:hover {
+  color: #010114;
+  transition: color .2s;
+}
+
+/* <-- Name */
+
+/* Description --> */
+
+#wilmxre h3>span:hover {
   background-color: var(--hero-color);
   color: transparent;
   text-shadow: 2px 2px 3px rgb(2, 1, 34, .5);
@@ -148,6 +161,8 @@ section {
   color: var(--hero-color);
   font-size: 2.5rem;
 }
+
+/* <-- Description */
 
 #work {
   background-color: #f38;
