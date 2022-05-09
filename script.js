@@ -65,7 +65,7 @@ const SPACE = ' ';
 // scroll on page with arrows or space
 const scrollWithKeys = () => {
   window.addEventListener('keydown', (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     section.forEach((item, index) => {
       if (item.childNodes[1].classList.length == 3) {
         switch (e.key) {
