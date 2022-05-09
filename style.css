@@ -10,7 +10,6 @@
 :root {
   font-family: 'Lato', sans-serif;
   --nav-color: #1F1E1F;
-  --hero-color: #020122;
   --wilmxre-color: #FC9E4F;
 }
 
@@ -68,6 +67,7 @@ section {
   background-color: var(--wilmxre-color);
   display: grid;
   grid-area: 1 / 2 / 2 / -1;
+  --hero-color: #020122;
 }
 
 #wilmxre .container {
@@ -88,7 +88,6 @@ section {
   font-size: 1.7rem;
   letter-spacing: 0.125rem;
   word-spacing: -.3rem;
-  text-align: center;
   overflow: hidden;
   color: var(--hero-color);
 }
@@ -165,6 +164,16 @@ section {
 
 /* <-- Description */
 
+
+#wilmxre p {
+  width: 85%;
+  font-size: 1.2rem;
+  margin-top: 24px;
+  font-weight: 300;
+  letter-spacing: .0625rem;
+  color: var(--hero-color);
+}
+
 /* Animations --> */
 
 .slide-in-left {
@@ -174,14 +183,18 @@ section {
 
 .slide-in-bottom {
   animation:
-    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2500ms both;
+    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2000ms both;
 }
 
 .slide-in-bottom-2 {
   animation:
-    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3000ms both;
+    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2500ms both;
 }
 
+.slide-in-right {
+  animation:
+    slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 4500ms both;
+}
 
 @keyframes slide-in-left {
   0% {
@@ -194,6 +207,19 @@ section {
     opacity: 1;
   }
 }
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 
 @keyframes slide-in-bottom {
   0% {
@@ -243,7 +269,7 @@ section {
   position: relative;
   transform: translateY(150px);
   opacity: 0;
-  transition: 1s all ease;
+  transition: 500ms all ease;
 }
 
 .reveal.active {

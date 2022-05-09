@@ -131,10 +131,10 @@ const scrollWithWheel = (e) => {
 
 
 let hello = document.querySelector('.hello');
+let helloText = "Hello, my name is";
 
 // typewriting effect
-function typeWriter(element, speed) {
-  let text = "Hello, my name is";
+function typeWriter(element, speed, text) {
   element.innerHTML = "";
 
   let i = 0;
@@ -155,7 +155,10 @@ function sleep(ms) {
 
 // function calls
 document.addEventListener("DOMContentLoaded", () => {
-  sleep(1000).then(() => typeWriter(hello, 100));
+  sleep(100).then(() => typeWriter(hello, 100, helloText));
+  sleep(4000).then(() => {
+    document.querySelector("#wilmxre > div").classList.add('reveal', 'active');
+  });
 });
 
 window.onload = () => {
