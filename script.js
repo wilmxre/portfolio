@@ -129,6 +129,35 @@ const scrollWithWheel = (e) => {
   });
 }
 
+
+let hello = document.querySelector('.hello');
+
+// typewriting effect
+function typeWriter(element, speed) {
+  let text = "Hello, my name is";
+  element.innerHTML = "";
+
+  let i = 0;
+  let timer = setInterval(() => {
+    if (i < text.length) {
+      element.append(text.charAt(i));
+      i++;
+    } else {
+      clearInterval(timer);
+    }
+  }, speed);
+}
+
+// sleep function
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// function calls
+document.addEventListener("DOMContentLoaded", () => {
+  sleep(1000).then(() => typeWriter(hello, 100));
+});
+
 window.onload = () => {
   changeActive();
   scrollInto();
