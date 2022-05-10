@@ -154,18 +154,12 @@ function sleep(ms) {
 }
 
 // function calls
-document.addEventListener("DOMContentLoaded", () => {
-  sleep(100).then(() => typeWriter(hello, 100, helloText));
-  sleep(4000).then(() => {
-    document.querySelector("#wilmxre > div").classList.add('reveal', 'active');
-  });
-});
-
 window.onload = () => {
   changeActive();
   scrollInto();
   scrollWithKeys();
   reveal();
+  typeWriter(hello, 100, helloText);
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
 }
