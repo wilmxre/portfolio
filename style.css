@@ -258,23 +258,63 @@ nav a.active {
   list-style: none;
   background-color: #F4442E;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 1.6rem;
   text-align: center;
   padding: 5rem 1rem;
   border-radius: 12px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+#work .container li .text-element {
+  background-color: #fff;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  color: #010114;
+  position: absolute;
+  text-align: center;
+  line-height: 7rem;
+  font-weight: bold;
+  /* display: none; */
+  cursor: pointer;
+  animation:
+    scale-down-center 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
 
+#work .container li:hover>.text-element {
+  /* display: block; */
+  animation:
+    scale-up-center 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
 
+@keyframes scale-up-center {
+  0% {
+    transform: scale(.2);
+    opacity: 0;
+  }
 
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
+@keyframes scale-down-center {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-
-
-
-
-
+  100% {
+    transform: scale(.2);
+    opacity: 0;
+  }
+}
 
 #about {
   background-color: #629;

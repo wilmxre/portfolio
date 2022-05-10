@@ -34,7 +34,7 @@ const scrollInto = () => {
         }
       }));
 
-    })
+    });
   });
 }
 
@@ -121,8 +121,8 @@ const scrollWithWheel = (e) => {
             section[index + 1].scrollIntoView({
               behavior: 'smooth'
             });
-            break;
           }
+          break;
         default:
       }
     }
@@ -170,7 +170,12 @@ const addWorkItems = () => {
 
   for (let i = 0; i < itemsCount; i++) {
     const workItem = document.createElement('li');
-    workItem.classList.add('work-item')
+    workItem.classList.add('work-item');
+
+    const workItemText = document.createElement('div');
+    workItemText.classList.add('text-element');
+    workItemText.textContent = 'View';
+    workItem.appendChild(workItemText);
 
     containerWork.appendChild(workItem);
   }
