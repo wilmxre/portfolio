@@ -222,14 +222,17 @@ const addWorkItems = () => {
     const workItemText = document.createElement('a');
     workItemText.classList.add('text-element');
     workItemText.textContent = `View`;
-
     elementWrapper.appendChild(workItemText);
     workItem.appendChild(elementWrapper);
 
     const workItemImg = document.createElement('img');
     workItemImg.classList.add('img-element');
-
     elementWrapper.appendChild(workItemImg);
+
+    const workItemOverlay = document.createElement('div');
+    workItemOverlay.classList.add('overlay');
+    elementWrapper.appendChild(workItemOverlay);
+
     workItem.appendChild(elementWrapper);
 
     containerWork.appendChild(workItem);
