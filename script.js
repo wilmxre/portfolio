@@ -148,10 +148,47 @@ function typeWriter(element, speed, text) {
   }, speed);
 }
 
-
+// add links to elements
 const addLink = (elem, link) => {
   elem.href = link;
 }
+
+// add images to elements
+const addBgImg = (elem, imgSrc) => {
+  // elem.style.backgroundImage = 'url("' + imgSrc + '");';
+  elem.style = 'background-image: url("' + imgSrc + '");'
+
+}
+
+const linkArray = [
+  'https://wilmxre.github.io/admin-dashboard/',
+  'https://wilmxre.github.io/calculator/',
+  'https://wilmxre.github.io/etch-a-sketch/',
+  'https://wilmxre.github.io/landing-page/',
+  'https://santagoshop.github.io/home/',
+  'https://wilmxre.github.io/rock-paper-scissors/',
+  'https://wilmxre.github.io/sign-up-form/',
+  'https://wilmxre.github.io/smartphone-store/',
+  'https://wilmxre.github.io/admin-dashboard/',
+  'https://wilmxre.github.io/admin-dashboard/',
+  'https://wilmxre.github.io/admin-dashboard/',
+  'https://wilmxre.github.io/admin-dashboard/'
+];
+
+const imgArray = [
+  './photos/admin-dashboard.png',
+  './photos/calculator.png',
+  './photos/etch-a-sketch.png',
+  './photos/landing-page.png',
+  './photos/products-catalog.png',
+  './photos/rps.png',
+  './photos/sign-up-form.png',
+  './photos/smartphone-store.png',
+  './photos/admin-dashboard.png',
+  './photos/admin-dashboard.png',
+  './photos/admin-dashboard.png',
+  './photos/admin-dashboard.png'
+];
 
 const containerWork = document.querySelector("#work > ul");
 
@@ -186,11 +223,11 @@ const addWorkItems = () => {
   }
   const a = document.querySelectorAll("#work > ul  > li")
 
-  // add links to elements
-
   let i = 0;
   while (true) {
-    addLink(a[i++].childNodes[0], 'https://www.github.com/');
+    addLink(a[i].childNodes[0], linkArray[i]);
+    addBgImg(a[i], imgArray[i++]);
+
     if (i == itemsCount) return;
   }
 }
