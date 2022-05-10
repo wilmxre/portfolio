@@ -10,7 +10,7 @@
 :root {
   font-family: 'Lato', sans-serif;
   --nav-color: #1F1E1F;
-  --wilmxre-color: #FC9E4F;
+  --bg-color: #FC9E4F;
 }
 
 body {
@@ -33,6 +33,7 @@ nav {
   justify-items: center;
   background-color: var(--nav-color);
   z-index: 999;
+  user-select: none;
 }
 
 nav a {
@@ -56,15 +57,12 @@ nav a.active {
 /* ====================
     S E C T I O N S
 ==================== */
-section {
-  min-height: 100vh;
-}
 
 /* ====================
     W I L M X R E
 ==================== */
 #wilmxre {
-  background-color: var(--wilmxre-color);
+  background-color: var(--bg-color);
   display: grid;
   grid-area: 1 / 2 / 2 / -1;
   --hero-color: #020122;
@@ -235,12 +233,44 @@ section {
 
 /* <-- Animations */
 
+/* ============
+    W O R K
+============ */
 #work {
-  background-color: #f38;
+  background-color: var(--bg-color);
   display: grid;
   grid-area: 2 / 2 / 3 / -1;
-  min-height: 100vh;
 }
+
+#work .container {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 80%;
+}
+
+#work .container li {
+  list-style: none;
+  background-color: #F4442E;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 #about {
   background-color: #629;
@@ -275,4 +305,9 @@ section {
 .reveal.active {
   transform: translateY(0);
   opacity: 1;
+}
+
+.hidden {
+  display: none;
+  /* visibility: hidden; */
 }
