@@ -148,6 +148,11 @@ function typeWriter(element, speed, text) {
   }, speed);
 }
 
+
+const addLink = (elem, link) => {
+  elem.href = link;
+}
+
 const containerWork = document.querySelector("#work > ul");
 
 // add items to work section
@@ -172,14 +177,22 @@ const addWorkItems = () => {
     const workItem = document.createElement('li');
     workItem.classList.add('work-item');
 
-    const workItemText = document.createElement('div');
+    const workItemText = document.createElement('a');
     workItemText.classList.add('text-element');
-    workItemText.textContent = 'View';
+    workItemText.textContent = `View-${i}`;
     workItem.appendChild(workItemText);
 
     containerWork.appendChild(workItem);
   }
+  const a = document.querySelectorAll("#work > ul  > li")
 
+  // add links to elements
+
+  let i = 0;
+  while (true) {
+    addLink(a[i++].childNodes[0], 'https://www.github.com/');
+    if (i == itemsCount) return;
+  }
 }
 
 // sleep function
