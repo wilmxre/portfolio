@@ -163,3 +163,34 @@ window.onload = () => {
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
 }
+
+const containerWork = document.querySelector("#work > ul");
+
+const addWorkItems = () => {
+  let itemsCount = 12;
+  let width = window.innerWidth;
+
+  switch (true) {
+    case width < 1280 && width > 1170:
+      itemsCount = 9;
+      break;
+    case width < 1170 && width > 810:
+      itemsCount = 6;
+      break;
+    case width < 810:
+      itemsCount = 4;
+      break;
+    default:
+  }
+
+
+  for (let i = 0; i < itemsCount; i++) {
+    const workItem = document.createElement('li');
+    workItem.classList.add('work-item')
+
+    containerWork.appendChild(workItem);
+  }
+
+}
+
+addWorkItems();
