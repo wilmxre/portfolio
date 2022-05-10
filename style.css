@@ -249,51 +249,62 @@ nav a.active {
     repeat(auto-fill, minmax(16rem, 1fr));
   gap: 2rem;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem;
   width: 80%;
   min-height: 100vh;
 }
 
-#work .container li {
+#work .work-item {
   list-style: none;
-  background-color: #F4442E;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   color: #ffffff;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   text-align: center;
-  padding: 5rem 1rem;
-  border-radius: 12px;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+  border-radius: 12px;
 }
 
-#work .container li .text-element {
+#work .img-element {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: 300ms;
+}
+
+#work .text-element {
   background-color: #fff;
-  width: 7rem;
-  height: 7rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   color: #010114;
   position: absolute;
   text-align: center;
-  line-height: 7rem;
+  line-height: 5rem;
   font-weight: bold;
-  /* display: none; */
   cursor: pointer;
   text-decoration: none;
   animation:
     scale-down-center 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  z-index: 20;
 }
 
-#work .container li:hover>.text-element {
-  /* display: block; */
+#work .work-item:hover>.text-element {
   animation:
     scale-up-center 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+#work .img-element:hover {
+  transform: scale(1.2);
 }
 
 @keyframes scale-up-center {

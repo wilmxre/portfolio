@@ -218,7 +218,7 @@ const addWorkItems = () => {
 
     const workItemText = document.createElement('a');
     workItemText.classList.add('text-element');
-    workItemText.textContent = `View-${i}`;
+    workItemText.textContent = `View`;
     workItem.appendChild(workItemText);
 
     const workItemImg = document.createElement('img');
