@@ -155,9 +155,11 @@ const addLink = (elem, link) => {
 
 // add images to elements
 const addBgImg = (elem, imgSrc) => {
-  // elem.style.backgroundImage = 'url("' + imgSrc + '");';
   elem.style = 'background-image: url("' + imgSrc + '");'
+}
 
+const addImg = (elem, imgSrc) => {
+  elem.src = imgSrc;
 }
 
 const linkArray = [
@@ -198,14 +200,14 @@ const addWorkItems = () => {
   let width = window.innerWidth;
 
   switch (true) {
-    case width < 1280 && width > 1170:
+    case width < 1575 && width > 1210:
       itemsCount = 9;
       break;
-    case width < 1170 && width > 810:
+    case width < 1210 && width >= 850:
       itemsCount = 6;
       break;
-    case width < 810:
-      itemsCount = 4;
+    case width < 850:
+      itemsCount = 3;
       break;
     default:
   }
@@ -219,6 +221,10 @@ const addWorkItems = () => {
     workItemText.textContent = `View-${i}`;
     workItem.appendChild(workItemText);
 
+    const workItemImg = document.createElement('img');
+    workItemImg.classList.add('img-element');
+    workItem.appendChild(workItemImg);
+
     containerWork.appendChild(workItem);
   }
   const a = document.querySelectorAll("#work > ul  > li")
@@ -226,7 +232,8 @@ const addWorkItems = () => {
   let i = 0;
   while (true) {
     addLink(a[i].childNodes[0], linkArray[i]);
-    addBgImg(a[i], imgArray[i++]);
+    addImg(a[i].childNodes[1], imgArray[i++]);
+    // addBgImg(a[i], imgArray[i++]);
 
     if (i == itemsCount) return;
   }
