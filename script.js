@@ -216,14 +216,21 @@ const addWorkItems = () => {
     const workItem = document.createElement('li');
     workItem.classList.add('work-item');
 
+    const elementWrapper = document.createElement('div');
+    elementWrapper.classList.add('element-wrapper');
+
     const workItemText = document.createElement('a');
     workItemText.classList.add('text-element');
     workItemText.textContent = `View`;
-    workItem.appendChild(workItemText);
+
+    elementWrapper.appendChild(workItemText);
+    workItem.appendChild(elementWrapper);
 
     const workItemImg = document.createElement('img');
     workItemImg.classList.add('img-element');
-    workItem.appendChild(workItemImg);
+
+    elementWrapper.appendChild(workItemImg);
+    workItem.appendChild(elementWrapper);
 
     containerWork.appendChild(workItem);
   }
@@ -231,8 +238,8 @@ const addWorkItems = () => {
 
   let i = 0;
   while (true) {
-    addLink(a[i].childNodes[0], linkArray[i]);
-    addImg(a[i].childNodes[1], imgArray[i++]);
+    addLink(a[i].childNodes[0].childNodes[0], linkArray[i]);
+    addImg(a[i].childNodes[0].childNodes[1], imgArray[i++]);
     // addBgImg(a[i], imgArray[i++]);
 
     if (i == itemsCount) return;
