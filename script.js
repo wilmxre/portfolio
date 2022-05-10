@@ -148,24 +148,9 @@ function typeWriter(element, speed, text) {
   }, speed);
 }
 
-// sleep function
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-// function calls
-window.onload = () => {
-  changeActive();
-  scrollInto();
-  scrollWithKeys();
-  reveal();
-  typeWriter(hello, 100, helloText);
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('wheel', scrollWithWheel, { passive: false });
-}
-
 const containerWork = document.querySelector("#work > ul");
 
+// add items to work section
 const addWorkItems = () => {
   let itemsCount = 12;
   let width = window.innerWidth;
@@ -183,7 +168,6 @@ const addWorkItems = () => {
     default:
   }
 
-
   for (let i = 0; i < itemsCount; i++) {
     const workItem = document.createElement('li');
     workItem.classList.add('work-item')
@@ -193,4 +177,29 @@ const addWorkItems = () => {
 
 }
 
-addWorkItems();
+// sleep function
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  sleep(400).then(() => typeWriter(hello, 100, helloText));
+});
+
+// function calls
+window.onload = () => {
+  changeActive();
+  scrollInto();
+  scrollWithKeys();
+  reveal();
+  // typeWriter(hello, 100, helloText);
+  addWorkItems();
+  window.addEventListener('scroll', reveal);
+  window.addEventListener('wheel', scrollWithWheel, { passive: false });
+}
+
+window.onbeforeunload = function () {
+  document.querySelector("#wilmxre > div").style.display = 'none';
+  document.querySelector("body > header > nav > a.wilmxre").classList.add('active');
+  window.scrollTo(0, 0);
+}
