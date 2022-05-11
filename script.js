@@ -257,12 +257,28 @@ const generateItems = (count) => {
     containerWork.appendChild(workItem);
   }
 
-  document.querySelectorAll("#work > ul > li > div > img").forEach((element, index) => {
-    setTimeout(() => {
-      element.classList.remove('hidden');
-      element.classList.add('reveal');
-    }, index * 400);
+  window.addEventListener('scroll', function () {
+    if (window.scrollY >= window.innerHeight) {
+      console.log(123);
+
+      document.querySelectorAll("#work > ul > li > div > img").forEach((element, index) => {
+        setTimeout(() => {
+          element.classList.remove('hidden');
+          // element.classList.add('reveal');
+        }, index * 500);
+      });
+
+    }
+
   });
+
+  // add items sequentially to the container
+  // document.querySelectorAll("#work > ul > li > div > img").forEach((element, index) => {
+  //   setTimeout(() => {
+  //     element.classList.remove('hidden');
+  //     element.classList.add('reveal');
+  //   }, index * 400);
+  // });
 
 }
 
