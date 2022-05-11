@@ -201,6 +201,10 @@ const imgArray = [
   './photos/smartphone-store.png'
 ];
 
+const animationArr = [
+
+];
+
 const containerWork = document.querySelector("#work > ul");
 const numberOfItems = 12;
 

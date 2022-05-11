@@ -1,0 +1,135 @@
+/* Animations --> */
+
+.slide-in-left {
+  animation:
+    slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3500ms both;
+}
+
+.slide-in-bottom {
+  animation:
+    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2000ms both;
+}
+
+.slide-in-bottom-2 {
+  animation:
+    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2500ms both;
+}
+
+.slide-in-bottom-no-delay {
+  animation:
+    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-in-right {
+  animation:
+    slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 4500ms both;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes blink {
+  0% {
+    background-color: var(--hero-color);
+  }
+
+  49% {
+    background-color: var(--hero-color);
+  }
+
+  50% {
+    background-color: transparent;
+  }
+
+  99% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: var(--hero-color);
+  }
+}
+
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(.2);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-down-center {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(.2);
+    opacity: 0;
+  }
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 400ms ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+  /* visibility: hidden; */
+}
+
+.test {
+  background-color: #010114;
+  z-index: 999;
+}
+
+/* <-- Animations */
