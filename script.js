@@ -257,14 +257,15 @@ const generateItems = (count) => {
     containerWork.appendChild(workItem);
   }
 
+  // Reveal work items when the section is active
   window.addEventListener('scroll', function () {
     if (window.scrollY >= window.innerHeight) {
-      console.log(123);
 
       document.querySelectorAll("#work > ul > li > div > img").forEach((element, index) => {
         setTimeout(() => {
           element.classList.remove('hidden');
-          // element.classList.add('reveal');
+          element.classList.add('slide-in-bottom-no-delay');
+          element.parentNode.parentNode.classList.add('box-shadow');
         }, index * 500);
       });
 

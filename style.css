@@ -190,6 +190,11 @@ nav a.active {
     slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2500ms both;
 }
 
+.slide-in-bottom-no-delay {
+  animation:
+    slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 .slide-in-right {
   animation:
     slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 4500ms both;
@@ -274,7 +279,6 @@ nav a.active {
   width: 250px;
   height: 250px;
   border-radius: 20px;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 #work .element-wrapper {
@@ -389,4 +393,14 @@ nav a.active {
 .hidden {
   display: none;
   /* visibility: hidden; */
+}
+
+.test {
+  background-color: #010114;
+  z-index: 999;
+}
+
+.box-shadow {
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 1000ms ease;
 }
