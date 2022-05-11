@@ -213,8 +213,6 @@ const containerWork = document.querySelector("#work > ul");
 // generate work section items
 const generateItems = (count) => {
 
-  setTimeout(() => 100)
-
   let width = window.innerWidth;
 
   switch (true) {
@@ -251,12 +249,16 @@ const generateItems = (count) => {
     workItemOverlay.classList.add('overlay');
     elementWrapper.appendChild(workItemOverlay);
 
+    let randomIndex = uniqueRandom(count);
+
+    addImg(workItemImg, imgArray[randomIndex]);
+    addLink(workItemText, linkArray[randomIndex]);
     workItem.appendChild(elementWrapper);
 
     containerWork.appendChild(workItem);
   }
 
-  fillWithContent(count);
+  // fillWithContent(count);
 }
 
 // fill work section items with content

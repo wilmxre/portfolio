@@ -273,7 +273,7 @@ nav a.active {
   overflow: hidden;
   width: 250px;
   height: 250px;
-  border-radius: 12px;
+  border-radius: 20px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
@@ -288,7 +288,7 @@ nav a.active {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 20px;
   z-index: 8;
 }
 
