@@ -150,6 +150,7 @@ function typeWriter(element, speed, text) {
 // add links to elements
 const addLink = (elem, link) => {
   elem.href = link;
+  elem.target = '_blank';
 }
 
 // add images to elements
@@ -222,8 +223,6 @@ const checkWidth = () => {
 // generate work section items
 const generateItems = (count) => {
 
-  console.log(checkWidth())
-
   for (let i = 0; i < count; i++) {
     const workItem = document.createElement('li');
     workItem.classList.add('work-item');
@@ -235,10 +234,9 @@ const generateItems = (count) => {
     workItemText.classList.add('text-element');
     workItemText.textContent = `View`;
     elementWrapper.appendChild(workItemText);
-    workItem.appendChild(elementWrapper);
 
     const workItemImg = document.createElement('img');
-    workItemImg.classList.add('img-element');
+    workItemImg.classList.add('img-element', 'hidden');
     elementWrapper.appendChild(workItemImg);
 
     const workItemOverlay = document.createElement('div');
@@ -248,7 +246,7 @@ const generateItems = (count) => {
     let randomIndex = uniqueRandom(count);
     if (!(randomIndex in imgArray)) {
       addImg(workItemImg, './photos/placeholder-image.png')
-      workItemText.textContent = 'Not Yet';
+      workItemText.textContent = 'Soon!';
     }
     else {
       addImg(workItemImg, imgArray[randomIndex]);
@@ -259,7 +257,16 @@ const generateItems = (count) => {
     containerWork.appendChild(workItem);
   }
 
+  document.querySelectorAll("#work > ul > li > div > img").forEach((element, index) => {
+    setTimeout(() => {
+      element.classList.remove('hidden');
+      element.classList.add('reveal');
+    }, index * 400);
+  });
+
 }
+
+
 
 // sleep function
 function sleep(ms) {
