@@ -47,8 +47,7 @@ const reveal = () => {
     let elementTop = reveals[i].getBoundingClientRect().top;
     let visible = 150;
 
-    // > 0 for removing active class, when you scroll pass the section (before it only removed it when you scrolled up pass the section)
-    if (elementTop < height - visible && elementTop > 0) {
+    if (elementTop < height - visible) {
       reveals[i].classList.add('active');
     } else {
       reveals[i].classList.remove('active');
@@ -163,18 +162,18 @@ const addImg = (elem, imgSrc) => {
 }
 
 const linkArray = [
-  'https://wilmxre.github.io/admin-dashboard/',
-  'https://wilmxre.github.io/calculator/',
-  'https://wilmxre.github.io/etch-a-sketch/',
-  'https://wilmxre.github.io/landing-page/',
-  'https://santagoshop.github.io/home/',
-  'https://wilmxre.github.io/rock-paper-scissors/',
-  'https://wilmxre.github.io/sign-up-form/',
-  'https://wilmxre.github.io/smartphone-store/',
-  'https://wilmxre.github.io/admin-dashboard/',
-  'https://wilmxre.github.io/admin-dashboard/',
-  'https://wilmxre.github.io/admin-dashboard/',
-  'https://wilmxre.github.io/admin-dashboard/'
+  'https://github.com/wilmxre/admin-dashboard/',
+  'https://github.com/wilmxre/calculator/',
+  'https://github.com/wilmxre/etch-a-sketch/',
+  'https://github.com/wilmxre/landing-page/',
+  'https://github.com/santagoshop/home',
+  'https://github.com/wilmxre/rock-paper-scissors/',
+  'https://github.com/wilmxre/sign-up-form/',
+  'https://github.com/wilmxre/smartphone-store/',
+  'https://github.com/wilmxre/admin-dashboard/',
+  'https://github.com/wilmxre/admin-dashboard/',
+  'https://github.com/wilmxre/admin-dashboard/',
+  'https://github.com/wilmxre/admin-dashboard/'
 ];
 
 const imgArray = [
@@ -270,6 +269,7 @@ window.onload = () => {
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
 }
 
+// got to top of page when website is refreshed
 window.onbeforeunload = function () {
   document.querySelector("#wilmxre > div").style.display = 'none';
   document.querySelector("body > header > nav > a.wilmxre").classList.add('active');
