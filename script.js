@@ -212,6 +212,9 @@ const containerWork = document.querySelector("#work > ul");
 
 // generate work section items
 const generateItems = (count) => {
+
+  setTimeout(() => 100)
+
   let width = window.innerWidth;
 
   switch (true) {
@@ -253,12 +256,11 @@ const generateItems = (count) => {
     containerWork.appendChild(workItem);
   }
 
-  return count;
+  fillWithContent(count);
 }
 
 // fill work section items with content
-let itemsCount = generateItems(12);
-const addWorkItems = () => {
+const fillWithContent = (itemsCount) => {
   const a = document.querySelectorAll("#work > ul  > li")
 
   let i = 0;
@@ -281,13 +283,14 @@ document.addEventListener("DOMContentLoaded", () => {
   sleep(400).then(() => typeWriter(hello, 100, helloText));
 });
 
+const numberOfItems = 12;
 // function calls
 window.onload = () => {
   changeActive();
   scrollInto();
   scrollWithKeys();
   reveal();
-  addWorkItems();
+  generateItems(numberOfItems);
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
 }
