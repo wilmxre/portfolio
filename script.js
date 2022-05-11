@@ -210,25 +210,24 @@ const imgArray = [
 
 const containerWork = document.querySelector("#work > ul");
 
-// add items to work section
-let itemsCount = 12;
-const addWorkItems = () => {
+// generate work section items
+const generateItems = (count) => {
   let width = window.innerWidth;
 
   switch (true) {
     case width < 1575 && width > 1210:
-      itemsCount = 9;
+      count = 9;
       break;
     case width < 1210 && width >= 850:
-      itemsCount = 6;
+      count = 6;
       break;
     case width < 850:
-      itemsCount = 3;
+      count = 3;
       break;
     default:
   }
 
-  for (let i = 0; i < itemsCount; i++) {
+  for (let i = 0; i < count; i++) {
     const workItem = document.createElement('li');
     workItem.classList.add('work-item');
 
@@ -253,6 +252,13 @@ const addWorkItems = () => {
 
     containerWork.appendChild(workItem);
   }
+
+  return count;
+}
+
+// fill work section items with content
+let itemsCount = generateItems(12);
+const addWorkItems = () => {
   const a = document.querySelectorAll("#work > ul  > li")
 
   let i = 0;
@@ -281,7 +287,6 @@ window.onload = () => {
   scrollInto();
   scrollWithKeys();
   reveal();
-  // typeWriter(hello, 100, helloText);
   addWorkItems();
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
