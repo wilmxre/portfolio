@@ -153,12 +153,29 @@ const addLink = (elem, link) => {
 }
 
 // add images to elements
-const addBgImg = (elem, imgSrc) => {
-  elem.style = 'background-image: url("' + imgSrc + '");'
-}
-
 const addImg = (elem, imgSrc) => {
   elem.src = imgSrc;
+}
+
+// generate random number
+let includesIt = [];
+
+const uniqueRandom = (n) => {
+  let random = Number((Math.random() * (n - 1)).toFixed());
+
+  if (!includesIt.includes(random)) {
+    includesIt.push(random);
+    return random;
+  }
+
+  else {
+    if (includesIt.length < n) {
+      return uniqueRandom(n);
+
+    } else {
+      return false;
+    }
+  }
 }
 
 const linkArray = [
@@ -194,8 +211,8 @@ const imgArray = [
 const containerWork = document.querySelector("#work > ul");
 
 // add items to work section
+let itemsCount = 12;
 const addWorkItems = () => {
-  let itemsCount = 12;
   let width = window.innerWidth;
 
   switch (true) {
@@ -240,9 +257,10 @@ const addWorkItems = () => {
 
   let i = 0;
   while (true) {
-    addLink(a[i].childNodes[0].childNodes[0], linkArray[i]);
-    addImg(a[i].childNodes[0].childNodes[1], imgArray[i++]);
-    // addBgImg(a[i], imgArray[i++]);
+    let randomIndex = uniqueRandom(itemsCount);
+    console.log(randomIndex);
+    addLink(a[i].childNodes[0].childNodes[0], linkArray[randomIndex]);
+    addImg(a[i++].childNodes[0].childNodes[1], imgArray[randomIndex]);
 
     if (i == itemsCount) return;
   }
