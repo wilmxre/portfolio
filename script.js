@@ -186,11 +186,7 @@ const linkArray = [
   'https://github.com/santagoshop/home',
   'https://github.com/wilmxre/rock-paper-scissors/',
   'https://github.com/wilmxre/sign-up-form/',
-  'https://github.com/wilmxre/smartphone-store/',
-  'https://github.com/wilmxre/admin-dashboard/',
-  'https://github.com/wilmxre/admin-dashboard/',
-  'https://github.com/wilmxre/admin-dashboard/',
-  'https://github.com/wilmxre/admin-dashboard/'
+  'https://github.com/wilmxre/smartphone-store/'
 ];
 
 const imgArray = [
@@ -201,11 +197,7 @@ const imgArray = [
   './photos/products-catalog.png',
   './photos/rps.png',
   './photos/sign-up-form.png',
-  './photos/smartphone-store.png',
-  './photos/admin-dashboard.png',
-  './photos/admin-dashboard.png',
-  './photos/admin-dashboard.png',
-  './photos/admin-dashboard.png'
+  './photos/smartphone-store.png'
 ];
 
 const containerWork = document.querySelector("#work > ul");
@@ -250,30 +242,20 @@ const generateItems = (count) => {
     elementWrapper.appendChild(workItemOverlay);
 
     let randomIndex = uniqueRandom(count);
+    if (!(randomIndex in imgArray)) {
+      console.log(randomIndex);
+      addImg(workItemImg, './photos/placeholder-image.png')
+      workItemText.textContent = 'Not Yet';
+    }
+    else {
+      addImg(workItemImg, imgArray[randomIndex]);
+      addLink(workItemText, linkArray[randomIndex]);
+    }
 
-    addImg(workItemImg, imgArray[randomIndex]);
-    addLink(workItemText, linkArray[randomIndex]);
     workItem.appendChild(elementWrapper);
-
     containerWork.appendChild(workItem);
   }
 
-  // fillWithContent(count);
-}
-
-// fill work section items with content
-const fillWithContent = (itemsCount) => {
-  const a = document.querySelectorAll("#work > ul  > li")
-
-  let i = 0;
-  while (true) {
-    let randomIndex = uniqueRandom(itemsCount);
-    console.log(randomIndex);
-    addLink(a[i].childNodes[0].childNodes[0], linkArray[randomIndex]);
-    addImg(a[i++].childNodes[0].childNodes[1], imgArray[randomIndex]);
-
-    if (i == itemsCount) return;
-  }
 }
 
 // sleep function
