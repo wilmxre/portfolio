@@ -201,24 +201,28 @@ const imgArray = [
 ];
 
 const containerWork = document.querySelector("#work > ul");
+const numberOfItems = 12;
 
-// generate work section items
-const generateItems = (count) => {
-
+// check width of window and return the correct item number per page
+const checkWidth = () => {
   let width = window.innerWidth;
 
   switch (true) {
     case width < 1575 && width > 1210:
-      count = 9;
-      break;
+      return 9;
     case width < 1210 && width >= 850:
-      count = 6;
-      break;
+      return 6;
     case width < 850:
-      count = 3;
-      break;
+      return 3;
     default:
+      return numberOfItems;
   }
+}
+
+// generate work section items
+const generateItems = (count) => {
+
+  console.log(checkWidth())
 
   for (let i = 0; i < count; i++) {
     const workItem = document.createElement('li');
@@ -243,7 +247,6 @@ const generateItems = (count) => {
 
     let randomIndex = uniqueRandom(count);
     if (!(randomIndex in imgArray)) {
-      console.log(randomIndex);
       addImg(workItemImg, './photos/placeholder-image.png')
       workItemText.textContent = 'Not Yet';
     }
@@ -267,14 +270,13 @@ document.addEventListener("DOMContentLoaded", () => {
   sleep(400).then(() => typeWriter(hello, 100, helloText));
 });
 
-const numberOfItems = 12;
 // function calls
 window.onload = () => {
   changeActive();
   scrollInto();
   scrollWithKeys();
   reveal();
-  generateItems(numberOfItems);
+  generateItems(checkWidth());
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
 }
