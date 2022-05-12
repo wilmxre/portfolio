@@ -302,7 +302,7 @@ const generateItems = (count) => {
         setTimeout(() => {
           element.classList.remove('hidden');
           element.parentNode.parentNode.classList.add('box-shadow', 'fade-in', animationArr[index], 'fade-in');
-        }, index * 500);
+        }, index * 400);
       });
 
     }
