@@ -201,17 +201,7 @@ const imgArray = [
   './photos/smartphone-store.png'
 ];
 
-const animationArr = [
-  'slide-in-tl',
-  'slide-in-top',
-  'slide-in-tr',
-  'slide-in-left',
-  'scale-in-center',
-  'slide-in-right',
-  'slide-in-bl',
-  'slide-in-bottom',
-  'slide-in-br'
-];
+let animationArr = [];
 
 const containerWork = document.querySelector("#work > ul");
 const numberOfItems = 12;
@@ -222,12 +212,47 @@ const checkWidth = () => {
 
   switch (true) {
     case width < 1575 && width > 1210:
+      animationArr = [
+        'slide-in-tl',
+        'slide-in-top',
+        'slide-in-tr',
+        'slide-in-left',
+        'scale-in-center',
+        'slide-in-right',
+        'slide-in-bl',
+        'slide-in-bottom',
+        'slide-in-br'];
       return 9;
     case width < 1210 && width >= 850:
+      animationArr = [
+        'slide-in-tl',
+        'slide-in-tr',
+        'slide-in-left',
+        'slide-in-right',
+        'slide-in-bl',
+        'slide-in-br'];
       return 6;
     case width < 850:
+      animationArr = [
+        'slide-in-top',
+        'scale-in-center',
+        'slide-in-bottom'
+      ];
       return 3;
     default:
+      animationArr = [
+        'slide-in-tl',
+        'slide-in-top',
+        'slide-in-top',
+        'slide-in-tr',
+        'slide-in-left',
+        'scale-in-center',
+        'scale-in-center',
+        'slide-in-right',
+        'slide-in-bl',
+        'slide-in-bottom',
+        'slide-in-bottom',
+        'slide-in-br'];
       return numberOfItems;
   }
 }
@@ -284,17 +309,7 @@ const generateItems = (count) => {
 
   });
 
-  // add items sequentially to the container
-  // document.querySelectorAll("#work > ul > li > div > img").forEach((element, index) => {
-  //   setTimeout(() => {
-  //     element.classList.remove('hidden');
-  //     element.classList.add('reveal');
-  //   }, index * 400);
-  // });
-
 }
-
-
 
 // sleep function
 function sleep(ms) {
