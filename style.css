@@ -115,7 +115,7 @@ nav a.active {
   transition: color .2s;
   font-weight: 700;
   display: inline-block;
-  transition: transform 800ms ease;
+  transition: transform 600ms ease;
   cursor: pointer;
 }
 

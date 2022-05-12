@@ -219,6 +219,7 @@
 
 .scale-in-center {
   animation: scale-in-center 600ms cubic-bezier(.25, .46, .45, .94) both;
+  image-rendering: -moz-crisp-edges;
 }
 
 @keyframes scale-in-center {
