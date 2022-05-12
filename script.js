@@ -302,7 +302,7 @@ const generateItems = (count) => {
         setTimeout(() => {
           element.classList.remove('hidden');
           element.parentNode.parentNode.classList.add('box-shadow', 'fade-in', animationArr[index], 'fade-in');
-        }, index * 400);
+        }, index * 0); //replace 0 with bigger number for delay
       });
 
     }

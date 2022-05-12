@@ -114,11 +114,16 @@ nav a.active {
   color: #251a2f;
   transition: color .2s;
   font-weight: 700;
+  display: inline-block;
+  transition: transform 800ms ease;
+  cursor: pointer;
 }
 
 .hero-letters .letter:hover {
   color: #653E54;
   transition: color 400ms;
+  transform: translateY(-10px);
+  transition: transform 400ms ease;
 }
 
 /* <-- Name */
@@ -246,6 +251,7 @@ nav a.active {
   background-color: #629;
   display: grid;
   grid-area: 3 / 2 / 4 / -1;
+  z-index: 30;
 }
 
 #contact {

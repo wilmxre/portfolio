@@ -10,13 +10,13 @@
 
 .hero-slide-in-bottom {
   animation:
-    hero-slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2000ms both;
+    hero-slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2600ms both;
   ;
 }
 
 .hero-slide-in-bottom-2 {
   animation:
-    hero-slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2500ms both;
+    hero-slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3000ms both;
   ;
 }
 
@@ -28,7 +28,7 @@
 
 @keyframes hero-slide-in-left {
   0% {
-    transform: translateX(-250px);
+    transform: translateX(-500px);
     opacity: 0;
   }
 
@@ -40,7 +40,7 @@
 
 @keyframes hero-slide-in-right {
   0% {
-    transform: translateX(250px);
+    transform: translateX(400px);
     opacity: 0;
   }
 
@@ -53,7 +53,7 @@
 
 @keyframes hero-slide-in-bottom {
   0% {
-    transform: translateY(250px);
+    transform: translateY(500px);
     opacity: 0;
   }
 
@@ -154,7 +154,7 @@
 /* provided by animista.net */
 
 .slide-in-top {
-  animation: slide-in-top 400ms cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-top 600ms cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes slide-in-top {
@@ -170,7 +170,7 @@
 }
 
 .slide-in-right {
-  animation: slide-in-right 400ms cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-right 600ms cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes slide-in-right {
@@ -186,7 +186,7 @@
 }
 
 .slide-in-bottom {
-  animation: slide-in-bottom 400ms cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-bottom 600ms cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes slide-in-bottom {
@@ -202,7 +202,7 @@
 }
 
 .slide-in-left {
-  animation: slide-in-left 400ms cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-left 600ms cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes slide-in-left {
@@ -218,7 +218,7 @@
 }
 
 .scale-in-center {
-  animation: scale-in-center 400ms cubic-bezier(.25, .46, .45, .94) both;
+  animation: scale-in-center 600ms cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes scale-in-center {
@@ -234,7 +234,7 @@
 }
 
 .slide-in-tr {
-  animation: slide-in-tr 400ms cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-tr 600ms cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes slide-in-tr {
@@ -250,7 +250,7 @@
 }
 
 .slide-in-br {
-  animation: slide-in-br 400ms cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-br 600ms cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes slide-in-br {
@@ -266,7 +266,7 @@
 }
 
 .slide-in-bl {
-  animation: slide-in-bl 400ms cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-bl 600ms cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes slide-in-bl {
@@ -282,7 +282,7 @@
 }
 
 .slide-in-tl {
-  animation: slide-in-tl 400ms cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-tl 600ms cubic-bezier(.25, .46, .45, .94) both;
 }
 
 @keyframes slide-in-tl {
@@ -294,5 +294,24 @@
   100% {
     transform: translateY(0) translateX(0);
     opacity: 1;
+  }
+}
+
+
+.floating {
+  animation: floating 2000ms ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
