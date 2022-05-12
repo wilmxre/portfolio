@@ -202,7 +202,15 @@ const imgArray = [
 ];
 
 const animationArr = [
-
+  'slide-in-tl',
+  'slide-in-top',
+  'slide-in-tr',
+  'slide-in-left',
+  'scale-in-center',
+  'slide-in-right',
+  'slide-in-bl',
+  'slide-in-bottom',
+  'slide-in-br'
 ];
 
 const containerWork = document.querySelector("#work > ul");
@@ -268,8 +276,7 @@ const generateItems = (count) => {
       document.querySelectorAll("#work > ul > li > div > img").forEach((element, index) => {
         setTimeout(() => {
           element.classList.remove('hidden');
-          element.classList.add('slide-in-bottom-no-delay');
-          element.parentNode.parentNode.classList.add('box-shadow');
+          element.parentNode.parentNode.classList.add('box-shadow', 'fade-in', animationArr[index], 'fade-in');
         }, index * 500);
       });
 
