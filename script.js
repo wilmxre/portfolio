@@ -311,16 +311,49 @@ const generateItems = (count) => {
 
 }
 
+
 // sleep function
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// replace work sections randomly, one by one
+replaceItems = () => {
+  const loadedItems = document.querySelectorAll("#work > ul > li.work-item");
+  includesIt = [];
+  loadedItems.forEach((element, index) => {
+    let randomImg = `https://picsum.photos/500/300?random=${index}`;
+    setTimeout(() => {
+      let rand = uniqueRandom(checkWidth());
+      loadedItems[rand].childNodes[0].childNodes[1].src = randomImg;
+      console.log(index)
+      if (index == loadedItems.length - 1) {
+        sleep(5000).then(() => replaceItems());
+      }
+    }, index * 500);
+  });
+  includesIt = [];
+}
+
+// check if the user is on work section
+const workSectionChecker = () => {
+  document.addEventListener('scroll', () => {
+    if (window.scrollY) {
+      sleep(5000).then(() => {
+        replaceItems();
+      })
+    }
+  }, { once: true });
+}
+
+workSectionChecker();
+
+
+// function calls
 document.addEventListener("DOMContentLoaded", () => {
   sleep(400).then(() => typeWriter(hello, 100, helloText));
 });
 
-// function calls
 window.onload = () => {
   changeActive();
   scrollInto();
