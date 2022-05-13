@@ -350,6 +350,13 @@ replaceItems = () => {
       randomCurrent = rand1.random();
       randomTotal = rand2.random();
 
+      while (true) {
+        if (randomTotal in genArr) {
+          randomTotal = rand2.random();
+        }
+        else break;
+      }
+
       console.log(randomCurrent, randomTotal) // L O G <--------------
 
 
@@ -362,9 +369,10 @@ replaceItems = () => {
 
 
       if (index == loadedItems.length - 1) {
-        sleep(200).then(() => replaceItems());
+        sleep(2000).then(() => replaceItems());
         console.log('***')
       }
+      // genArr = includesIt;
     }, index * 2000);
   });
 }
@@ -380,9 +388,6 @@ const workSectionChecker = () => {
   }, { once: true });
 }
 
-workSectionChecker();
-
-
 // function calls
 document.addEventListener("DOMContentLoaded", () => {
   sleep(400).then(() => typeWriter(hello, 100, helloText));
@@ -394,6 +399,7 @@ window.onload = () => {
   scrollWithKeys();
   reveal();
   generateItems(checkWidth());
+  workSectionChecker();
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
 }
