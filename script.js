@@ -158,23 +158,29 @@ const addImg = (elem, imgSrc) => {
   elem.src = imgSrc;
 }
 
+
 // generate random number
-let includesIt = [];
-
-const uniqueRandom = (n) => {
-  let random = Number((Math.random() * (n - 1)).toFixed());
-
-  if (!includesIt.includes(random)) {
-    includesIt.push(random);
-    return random;
+class UniqueRandomGen {
+  constructor(arr, n) {
+    this.arr = arr;
+    this.n = n;
   }
 
-  else {
-    if (includesIt.length < n) {
-      return uniqueRandom(n);
+  random = () => {
+    let random = Number((Math.random() * (this.n - 1)).toFixed());
 
-    } else {
-      return false;
+    if (!this.arr.includes(random)) {
+      this.arr.push(random);
+      return random;
+    }
+
+    else {
+      if (this.arr.length < this.n) {
+        return this.random(this.n);
+
+      } else {
+        return false;
+      }
     }
   }
 }
@@ -187,7 +193,12 @@ const linkArray = [
   'https://github.com/santagoshop/home',
   'https://github.com/wilmxre/rock-paper-scissors/',
   'https://github.com/wilmxre/sign-up-form/',
-  'https://github.com/wilmxre/smartphone-store/'
+  'https://github.com/wilmxre/smartphone-store/',
+  '',
+  '',
+  '',
+  '',
+  ''
 ];
 
 const imgArray = [
@@ -198,7 +209,12 @@ const imgArray = [
   './photos/products-catalog.png',
   './photos/rps.png',
   './photos/sign-up-form.png',
-  './photos/smartphone-store.png'
+  './photos/smartphone-store.png',
+  './photos/id1.png',
+  './photos/id2.png',
+  './photos/id3.png',
+  './photos/id4.png',
+  './photos/id5.png'
 ];
 
 let animationArr = [];
@@ -257,8 +273,10 @@ const checkWidth = () => {
   }
 }
 
+let genArr = [];
 // generate work section items
 const generateItems = (count) => {
+  const rand = new UniqueRandomGen(genArr, count);
 
   for (let i = 0; i < count; i++) {
     const workItem = document.createElement('li');
@@ -280,7 +298,7 @@ const generateItems = (count) => {
     workItemOverlay.classList.add('overlay');
     elementWrapper.appendChild(workItemOverlay);
 
-    let randomIndex = uniqueRandom(count);
+    let randomIndex = rand.random();
     if (!(randomIndex in imgArray)) {
       addImg(workItemImg, './photos/placeholder-image.png')
       workItemText.textContent = 'Soon!';
@@ -311,35 +329,51 @@ const generateItems = (count) => {
 
 }
 
-
 // sleep function
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+
+
 // replace work sections randomly, one by one
 replaceItems = () => {
+  let includesIt = [];
+  let includesIt2 = [];
   const loadedItems = document.querySelectorAll("#work > ul > li.work-item");
-  includesIt = [];
+  let i = 1;
   loadedItems.forEach((element, index) => {
-    let randomImg = `https://picsum.photos/500/300?random=${index}`;
     setTimeout(() => {
-      let rand = uniqueRandom(checkWidth());
-      loadedItems[rand].childNodes[0].childNodes[1].src = randomImg;
-      console.log(index)
+      const rand1 = new UniqueRandomGen(includesIt, checkWidth());
+      const rand2 = new UniqueRandomGen(includesIt2, imgArray.length);
+
+      randomCurrent = rand1.random();
+      randomTotal = rand2.random();
+
+      console.log(randomCurrent, randomTotal) // L O G <--------------
+
+
+      loadedItems[randomCurrent].childNodes[0].childNodes[0].src =
+        linkArray[randomTotal];
+      loadedItems[randomCurrent].childNodes[0].childNodes[1].src =
+        imgArray[randomTotal];
+      loadedItems[randomCurrent].childNodes[0].childNodes[0].textContent =
+        i++;
+
+
       if (index == loadedItems.length - 1) {
-        sleep(5000).then(() => replaceItems());
+        sleep(200).then(() => replaceItems());
+        console.log('***')
       }
-    }, index * 500);
+    }, index * 2000);
   });
-  includesIt = [];
 }
 
 // check if the user is on work section
 const workSectionChecker = () => {
   document.addEventListener('scroll', () => {
     if (window.scrollY) {
-      sleep(5000).then(() => {
+      sleep(2000).then(() => {
         replaceItems();
       })
     }
