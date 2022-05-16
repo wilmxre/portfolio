@@ -426,6 +426,7 @@ window.onload = () => {
   // workSectionChecker();
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
+  window.addEventListener('touchmove', scrollWithWheel, { passive: false });
   toggleSwitch.addEventListener('change', switchTheme, false);
 }
 
