@@ -66,11 +66,11 @@
 
 @keyframes blink {
   0% {
-    background-color: var(--hero-color);
+    background-color: var(--main-color);
   }
 
   49% {
-    background-color: var(--hero-color);
+    background-color: var(--main-color);
   }
 
   50% {

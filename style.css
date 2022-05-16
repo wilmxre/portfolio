@@ -11,6 +11,11 @@
   font-family: 'Lato', sans-serif;
   --nav-color: #252422;
   --main-color: #251a2f;
+  --wilmxre-color: linear-gradient(0deg, rgba(231, 182, 131, 1) 0%, rgba(227, 166, 117, 1) 100%);
+  --work-color: linear-gradient(0deg, rgba(235, 197, 143, 1) 0%, rgba(231, 182, 131, 1) 100%);
+  --about-color: linear-gradient(0deg, rgba(238, 209, 154, 1) 0%, rgba(235, 197, 143, 1) 100%);
+  --contact-color: linear-gradient(0deg, rgba(242, 223, 166, 1) 0%, rgba(238, 209, 154, 1) 100%);
+  --hero-letter: #653E54;
 }
 
 body {
@@ -20,6 +25,15 @@ body {
   overflow: hidden;
   scroll-behavior: smooth;
   background-color: rgba(238, 209, 154, 1);
+}
+
+html[data-theme="dark"] {
+  --main-color: #F2DFA6;
+  --wilmxre-color: #212121;
+  --work-color: #212121;
+  --about-color: #212121;
+  --contact-color: #212121;
+  --hero-letter: #9D6381;
 }
 
 /* ========================
@@ -44,7 +58,7 @@ nav a {
   padding: 2px 0;
   font-size: 1.2rem;
   font-weight: 700;
-  color: rgb(240, 240, 240, .4);
+  color: rgb(240, 240, 240, .5);
   transition: all 300ms linear;
   letter-spacing: 1px;
   cursor: pointer;
@@ -53,7 +67,7 @@ nav a {
 
 nav a:hover,
 nav a.active {
-  color: rgb(255, 255, 255, 1);
+  color: #ffffff;
 }
 
 /* =====================
@@ -84,7 +98,7 @@ nav a.active {
   left: 0;
   right: 0;
   top: 0;
-  background-color: var(--nav-color);
+  background-color: #333;
   cursor: pointer;
   transition: 0.4s;
 }
@@ -92,7 +106,7 @@ nav a.active {
 .slider:before {
   content: "";
   position: absolute;
-  background-color: #fff;
+  background-color: #F2DFA6;
   bottom: 4px;
   left: 4px;
   width: 26px;
@@ -109,13 +123,18 @@ nav a.active {
 }
 
 input:checked+.slider {
-  background-color: #09c39e;
+  background-color: #F2DFA6;
+}
+
+input:checked+.slider::before {
+  left: -4px;
+  background-color: transparent;
+  box-shadow: 8px 0px 0px 0px #333;
 }
 
 input:checked+.slider:before {
   transform: translateX(26px);
 }
-
 
 /* ====================
     S E C T I O N S
@@ -126,7 +145,7 @@ input:checked+.slider:before {
 ==================== */
 #wilmxre {
   background: rgb(231, 182, 131);
-  background: linear-gradient(0deg, rgba(231, 182, 131, 1) 0%, rgba(227, 166, 117, 1) 100%);
+  background: var(--wilmxre-color);
   display: grid;
   grid-area: 1 / 2 / 2 / -1;
 }
@@ -183,7 +202,7 @@ input:checked+.slider:before {
 }
 
 .hero-letters .letter:hover {
-  color: #653E54;
+  color: var(--hero-letter);
   transition: color 400ms;
   transform: translateY(-10px);
   transition: transform 400ms ease;
@@ -224,7 +243,7 @@ input:checked+.slider:before {
 ============ */
 #work {
   background: rgb(235, 197, 143);
-  background: linear-gradient(0deg, rgba(235, 197, 143, 1) 0%, rgba(231, 182, 131, 1) 100%);
+  background: var(--work-color);
   grid-area: 2 / 2 / 3 / -1;
   z-index: 20;
   /* hero name stays hidden on animation */
@@ -315,7 +334,7 @@ input:checked+.slider:before {
 ============== */
 #about {
   background: rgb(238, 209, 154);
-  background: linear-gradient(0deg, rgba(238, 209, 154, 1) 0%, rgba(235, 197, 143, 1) 100%);
+  background: var(--about-color);
   display: grid;
   grid-area: 3 / 2 / 4 / -1;
   z-index: 30;
@@ -359,7 +378,7 @@ input:checked+.slider:before {
 ================== */
 #contact {
   background: rgb(242, 223, 166);
-  background: linear-gradient(0deg, rgba(242, 223, 166, 1) 0%, rgba(238, 209, 154, 1) 100%);
+  background: var(--contact-color);
   display: grid;
   grid-area: 4 / 2 / 5 / -1;
 }
