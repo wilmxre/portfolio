@@ -399,7 +399,7 @@ window.onload = () => {
   scrollWithKeys();
   reveal();
   generateItems(checkWidth());
-  workSectionChecker();
+  // workSectionChecker();
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
 }
