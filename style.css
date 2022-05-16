@@ -16,6 +16,7 @@
   --about-color: linear-gradient(0deg, rgba(238, 209, 154, 1) 0%, rgba(235, 197, 143, 1) 100%);
   --contact-color: linear-gradient(0deg, rgba(242, 223, 166, 1) 0%, rgba(238, 209, 154, 1) 100%);
   --hero-letter: #653E54;
+  --text-shadow: rgb(2, 1, 34, .5);
 }
 
 body {
@@ -34,6 +35,7 @@ html[data-theme="dark"] {
   --about-color: #212121;
   --contact-color: #212121;
   --hero-letter: #9D6381;
+  --text-shadow: ;
 }
 
 /* ========================
@@ -166,7 +168,7 @@ input:checked+.slider:before {
 #wilmxre h2 {
   @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
   font-family: 'Anonymous Pro', monospace;
-  font-size: 1.7rem;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
   letter-spacing: 0.125rem;
   word-spacing: -.3rem;
   overflow: hidden;
@@ -189,7 +191,7 @@ input:checked+.slider:before {
   gap: 20px;
   color: var(--main-color);
   letter-spacing: -.1em;
-  font-size: 6rem;
+  font-size: clamp(3rem, 10vw, 6rem);
 }
 
 .hero-letters .letter {
@@ -215,7 +217,7 @@ input:checked+.slider:before {
 #wilmxre h3>span:hover {
   background-color: var(--main-color);
   color: transparent;
-  text-shadow: 2px 2px 3px rgb(2, 1, 34, .5);
+  text-shadow: 2px 2px 3px var(--text-shadow);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -223,7 +225,7 @@ input:checked+.slider:before {
 
 #wilmxre h3 {
   color: var(--main-color);
-  font-size: 2.5rem;
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
 }
 
 /* <-- Description */
@@ -231,7 +233,7 @@ input:checked+.slider:before {
 
 #wilmxre p {
   width: 85%;
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
   margin-top: 24px;
   font-weight: 300;
   letter-spacing: .0625rem;
@@ -407,4 +409,41 @@ input:checked+.slider:before {
 #cv {
   display: grid;
   grid-area: 5 / 2 / 6 / -1;
+}
+
+
+/* ==========================
+    B R E A K P O I N T S
+========================== */
+
+@media only screen and (max-width: 850px) {
+  nav {
+    display: none;
+  }
+
+  .dark-mode {
+    zoom: 90%;
+  }
+
+  #wilmxre {
+    grid-area: 1 / 1 / 2 / -1;
+  }
+
+  #wilmxre .container {
+    width: 90%;
+  }
+
+  #wilmxre .container {
+    gap: 5px;
+  }
+
+  #wilmxre .hero-letters {
+    /* flex-direction: column; */
+    gap: 16px;
+    line-height: .9;
+  }
+
+  #wilmxre p {
+    width: 100%;
+  }
 }
