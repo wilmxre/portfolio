@@ -398,12 +398,12 @@ input:checked+.slider:before {
 
 #contact h2 {
   margin-bottom: 1.4rem;
-  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 2.5vw, 1.5rem);
 }
 
 #contact span {
   padding: 6px 0;
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
 }
 
 #cv {
@@ -456,8 +456,12 @@ input:checked+.slider:before {
   }
 
   /* about */
-
   #about {
-    grid-area: 3 /1 /4 /-1;
+    grid-area: 3 / 1 / 4 /-1;
+  }
+
+  /* contact */
+  #contact {
+    grid-area: 4 / 1 / 5 / -1;
   }
 }
