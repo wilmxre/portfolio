@@ -435,3 +435,20 @@ window.onbeforeunload = function () {
   document.querySelector("body > header > nav > a.wilmxre").classList.add('active');
   window.scrollTo(0, 0);
 }
+
+
+document.querySelector("body > header > div").addEventListener('click', () => {
+  const isToggled = document.querySelector("body > header > nav").classList.toggle('hamburger');
+
+  if (isToggled) {
+    document.querySelector("body > header > div").childNodes[1].innerHTML = '<path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z"/>';
+    document.querySelector("body > header > div > svg > path").style.fill = '#F2DFA6';
+  }
+
+  else {
+    if (currentTheme === 'light') {
+      document.querySelector("body > header > div > svg > path").style.fill = '#251a2f';
+    }
+    document.querySelector("body > header > div").childNodes[1].innerHTML = '<path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z" />'
+  }
+});

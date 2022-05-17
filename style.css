@@ -50,7 +50,7 @@ nav {
   align-items: center;
   justify-items: center;
   background-color: var(--nav-color);
-  z-index: 999;
+  z-index: 900;
   user-select: none;
 }
 
@@ -72,6 +72,12 @@ nav a.active {
   color: #ffffff;
 }
 
+
+.nav-collapsed,
+.links {
+  display: none;
+}
+
 /* =====================
     D A R K  M O D E
 ===================== */
@@ -80,7 +86,7 @@ nav a.active {
   position: fixed;
   top: 50px;
   right: 50px;
-  z-index: 999;
+  z-index: 800;
 }
 
 .theme-switch {
@@ -359,7 +365,7 @@ input:checked+.slider:before {
 }
 
 #about .container p {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
   padding: 0 0 24px;
   margin-right: calc(15vw - 100px);
 }
@@ -383,6 +389,7 @@ input:checked+.slider:before {
   background: var(--contact-color);
   display: grid;
   grid-area: 4 / 2 / 5 / -1;
+  z-index: 30;
 }
 
 #contact .container {
@@ -419,12 +426,14 @@ input:checked+.slider:before {
 @media only screen and (max-width: 850px) {
 
   /* global */
-  nav {
-    display: none;
+  nav a {
+    transform: rotate(0deg);
   }
 
   .dark-mode {
     zoom: 90%;
+    top: 50px;
+    right: 140px;
   }
 
   /* wilmxre */
@@ -463,5 +472,27 @@ input:checked+.slider:before {
   /* contact */
   #contact {
     grid-area: 4 / 1 / 5 / -1;
+  }
+
+  .hamburger {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    grid-auto-flow: column;
+    background-color: rgb(37, 36, 34, .95);
+  }
+
+  .nav-collapsed {
+    display: block;
+    position: fixed;
+    top: 37.5px;
+    right: 50px;
+    z-index: 901;
+    cursor: pointer;
+  }
+
+  path {
+    fill: var(--main-color);
   }
 }
