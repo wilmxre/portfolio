@@ -412,6 +412,34 @@ const switchTheme = (e) => {
   }
 }
 
+// change navigation bar layout on mobile
+const mobileMenu = () => {
+  document.querySelector("body > header > div").addEventListener('click', () => {
+    const isToggled = document.querySelector("body > header > nav").classList.toggle('hamburger');
+
+    if (isToggled) {
+      document.querySelector("body > header > div").childNodes[1].innerHTML = '<path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z"/>';
+      document.querySelector("body > header > div > svg > path").style.fill = '#F2DFA6';
+    }
+
+    else {
+      if (currentTheme === 'light') {
+        document.querySelector("body > header > div > svg > path").style.fill = '#251a2f';
+      }
+      document.querySelector("body > header > div").childNodes[1].innerHTML = '<path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z" />'
+    }
+  });
+}
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+console.log(document.documentElement.style.getPropertyValue('--vh'))
+
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
 // function calls
 document.addEventListener("DOMContentLoaded", () => {
   sleep(400).then(() => typeWriter(hello, 100, helloText));
@@ -424,6 +452,7 @@ window.onload = () => {
   reveal();
   generateItems(checkWidth());
   // workSectionChecker();
+  mobileMenu();
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
   toggleSwitch.addEventListener('change', switchTheme, false);
@@ -435,20 +464,3 @@ window.onbeforeunload = function () {
   document.querySelector("body > header > nav > a.wilmxre").classList.add('active');
   window.scrollTo(0, 0);
 }
-
-
-document.querySelector("body > header > div").addEventListener('click', () => {
-  const isToggled = document.querySelector("body > header > nav").classList.toggle('hamburger');
-
-  if (isToggled) {
-    document.querySelector("body > header > div").childNodes[1].innerHTML = '<path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z"/>';
-    document.querySelector("body > header > div > svg > path").style.fill = '#F2DFA6';
-  }
-
-  else {
-    if (currentTheme === 'light') {
-      document.querySelector("body > header > div > svg > path").style.fill = '#251a2f';
-    }
-    document.querySelector("body > header > div").childNodes[1].innerHTML = '<path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z" />'
-  }
-});
