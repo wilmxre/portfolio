@@ -17,6 +17,7 @@
   --contact-color: linear-gradient(0deg, rgba(242, 223, 166, 1) 0%, rgba(238, 209, 154, 1) 100%);
   --hero-letter: #653E54;
   --text-shadow: rgb(2, 1, 34, .5);
+  --work-item-size: min(235px, 20vw);
 }
 
 body {
@@ -283,8 +284,8 @@ input:checked+.slider:before {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  width: 250px;
-  height: 250px;
+  width: var(--work-item-size);
+  height: var(--work-item-size);
   border-radius: 20px;
 }
 
@@ -296,8 +297,8 @@ input:checked+.slider:before {
 }
 
 #work .img-element {
-  width: 250px;
-  height: 250px;
+  width: var(--work-item-size);
+  height: var(--work-item-size);
   object-fit: cover;
   border-radius: 20px;
   z-index: 8;
@@ -331,8 +332,8 @@ input:checked+.slider:before {
 
 #work .element-wrapper:hover>.overlay {
   background-color: rgba(0, 0, 0, 0.6);
-  width: 250px;
-  height: 250px;
+  width: var(--work-item-size);
+  height: var(--work-item-size);
   position: absolute;
   z-index: 9;
 }
@@ -426,6 +427,10 @@ input:checked+.slider:before {
 @media only screen and (max-width: 850px) {
 
   /* global */
+  :root {
+    --work-item-size: max(180px, 25vw);
+  }
+
   nav a {
     transform: rotate(0deg);
   }
@@ -474,6 +479,7 @@ input:checked+.slider:before {
     grid-area: 4 / 1 / 5 / -1;
   }
 
+  /* nav */
   .hamburger {
     position: fixed;
     top: 0;
@@ -494,5 +500,62 @@ input:checked+.slider:before {
 
   path {
     fill: var(--main-color);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .hamburger a {
+    font-size: 1.05rem;
+  }
+
+  .nav-collapsed,
+  .dark-mode {
+    zoom: 80%;
+  }
+
+  .nav-collapsed {
+    top: 45px;
+  }
+
+  #wilmxre .container .hello {
+    font-size: 1.1rem;
+  }
+
+  #wilmxre .container .letter {
+    font-size: 2.4rem;
+  }
+
+  #wilmxre .container h3 {
+    font-size: 1.4rem;
+    margin-top: 5px;
+  }
+
+  #wilmxre .container p {
+    font-size: 1rem;
+  }
+
+  #about .container {
+    width: 90%;
+  }
+
+  #about .container h2 {
+    font-size: 2rem;
+  }
+
+  #about .container p {
+    font-size: .9rem;
+  }
+
+  #contact .container {
+    width: 90%;
+  }
+
+  #contact .container h2 {
+    font-size: 1.35rem;
+  }
+
+  #contact .container span {
+    font-size: 1rem;
   }
 }
