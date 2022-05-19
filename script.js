@@ -425,6 +425,11 @@ const mobileMenu = () => {
   });
 }
 
+// function calls
+document.addEventListener("DOMContentLoaded", () => {
+  sleep(400).then(() => typeWriter(hello, 100, helloText));
+});
+
 window.onload = () => {
   changeActive();
   scrollInto();
