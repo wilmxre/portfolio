@@ -193,12 +193,7 @@ const linkArray = [
   'https://github.com/santagoshop/home',
   'https://github.com/wilmxre/rock-paper-scissors/',
   'https://github.com/wilmxre/sign-up-form/',
-  'https://github.com/wilmxre/smartphone-store/',
-  '',
-  '',
-  '',
-  '',
-  ''
+  'https://github.com/wilmxre/smartphone-store/'
 ];
 
 const imgArray = [
@@ -209,12 +204,7 @@ const imgArray = [
   './photos/products-catalog.png',
   './photos/rps.png',
   './photos/sign-up-form.png',
-  './photos/smartphone-store.png',
-  './photos/id1.png',
-  './photos/id2.png'
-  // './photos/id3.png',
-  // './photos/id4.png',
-  // './photos/id5.png'
+  './photos/smartphone-store.png'
 ];
 
 let animationArr = [];
@@ -357,7 +347,6 @@ replaceItems = () => {
       randomCurrent = rand1.random();
       randomTotal = rand2.random();
 
-      console.log('-->', index, genArr)
       while (true) {
         if (genArr.includes(randomTotal)) {
           includesIt2.pop();
@@ -366,14 +355,13 @@ replaceItems = () => {
         else break;
       }
 
-      loadedItems[randomCurrent].childNodes[0].childNodes[0].src =
+      loadedItems[randomCurrent].childNodes[0].childNodes[0].href =
         linkArray[randomTotal];
       loadedItems[randomCurrent].childNodes[0].childNodes[1].src =
         imgArray[randomTotal];
 
-
       if (index == loadedItems.length - 1) {
-        sleep(2000).then(() => replaceItems());
+        sleep(5000).then(() => replaceItems());
       }
 
       let temp = includesIt2;
@@ -386,7 +374,7 @@ replaceItems = () => {
 const workSectionChecker = () => {
   document.addEventListener('scroll', () => {
     if (window.scrollY) {
-      sleep(2000).then(() => {
+      sleep(5000).then(() => {
         replaceItems();
       })
     }

@@ -421,6 +421,10 @@ input:checked+.slider:before {
   grid-area: 5 / 2 / 6 / -1;
 }
 
+.fadee-in {
+  animation:
+    scale-down-center 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
 
 /* ==========================
     B R E A K P O I N T S
