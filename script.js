@@ -103,7 +103,8 @@ const scrollWithWheel = (e) => {
     delta = e.deltaY * -1;
   }
 
-  e.preventDefault();
+  if (window.innerWidth >= 500)
+    e.preventDefault();
 
   section.forEach((item, index) => {
     if (item.childNodes[1].classList.length == 3) {
