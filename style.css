@@ -505,6 +505,10 @@ input:checked+.slider:before {
 
 @media only screen and (max-width: 500px) {
 
+  body {
+    overflow: scroll;
+  }
+
   .hamburger a {
     font-size: 1.05rem;
     transition: none;

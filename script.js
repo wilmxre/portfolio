@@ -442,13 +442,11 @@ window.onload = () => {
 
   mobileMenu();
   window.addEventListener('scroll', reveal);
-  if (window.innerWidth <= 500) {
-    window.addEventListener('touchmove', reveal);
-    window.addEventListener('touchmove', scrollWithWheel, { passive: false });
-  }
-
   if (window.innerWidth >= 500)
     window.addEventListener('wheel', scrollWithWheel, { passive: false });
+  else
+    window.addEventListener('touchstart', scrollWithWheel, { passive: false });
+
 
   toggleSwitch.addEventListener('change', switchTheme, false);
 }
