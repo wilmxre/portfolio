@@ -437,13 +437,15 @@ window.onload = () => {
   reveal();
   generateItems(checkWidth());
 
-  if (checkWidth() <= 4) {
+  if (checkWidth() <= 4)
     workSectionChecker();
-  }
 
   mobileMenu();
   window.addEventListener('scroll', reveal);
-  window.addEventListener('wheel', scrollWithWheel, { passive: false });
+
+  if (window.innerWidth >= 500)
+    window.addEventListener('wheel', scrollWithWheel, { passive: false });
+
   toggleSwitch.addEventListener('change', switchTheme, false);
 }
 
