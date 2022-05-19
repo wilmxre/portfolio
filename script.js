@@ -209,12 +209,12 @@ const imgArray = [
   './photos/products-catalog.png',
   './photos/rps.png',
   './photos/sign-up-form.png',
-  './photos/smartphone-store.png',
-  './photos/id1.png',
-  './photos/id2.png',
-  './photos/id3.png',
-  './photos/id4.png',
-  './photos/id5.png'
+  './photos/smartphone-store.png'
+  // './photos/id1.png',
+  // './photos/id2.png',
+  // './photos/id3.png',
+  // './photos/id4.png',
+  // './photos/id5.png'
 ];
 
 let animationArr = [];
@@ -248,6 +248,14 @@ const checkWidth = () => {
         'slide-in-bl',
         'slide-in-br'];
       return 6;
+    case width < 850 && width >= 760:
+      animationArr = [
+        'slide-in-tl',
+        'slide-in-tr',
+        'slide-in-bl',
+        'slide-in-br'
+      ];
+      return 4;
     case width < 850:
       animationArr = [
         'slide-in-top',
