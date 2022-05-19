@@ -360,15 +360,11 @@ replaceItems = () => {
       console.log('-->', index, genArr)
       while (true) {
         if (genArr.includes(randomTotal)) {
-          console.log({ randomTotal });
           includesIt2.pop();
           randomTotal = rand2.random();
         }
         else break;
       }
-
-      console.log(randomCurrent, randomTotal) // L O G <--------------
-
 
       loadedItems[randomCurrent].childNodes[0].childNodes[0].src =
         linkArray[randomTotal];
@@ -378,11 +374,10 @@ replaceItems = () => {
 
       if (index == loadedItems.length - 1) {
         sleep(2000).then(() => replaceItems());
-        console.log('***')
       }
 
       let temp = includesIt2;
-      if (temp.length == 4) genArr = temp;
+      if (temp.length == checkWidth()) genArr = temp;
     }, index * 2000);
   });
 }
