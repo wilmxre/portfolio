@@ -425,19 +425,6 @@ const mobileMenu = () => {
   });
 }
 
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
-
-// function calls
-document.addEventListener("DOMContentLoaded", () => {
-  sleep(400).then(() => typeWriter(hello, 100, helloText));
-});
-
 window.onload = () => {
   changeActive();
   scrollInto();

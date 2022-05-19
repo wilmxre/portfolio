@@ -19,7 +19,6 @@
   --text-shadow: rgb(2, 1, 34, .5);
   --work-item-size: min(235px, 20vw);
   --vh-full: 100vh;
-  --vh-full: calc(var(--vh, 1vh) * 100);
 }
 
 body {
