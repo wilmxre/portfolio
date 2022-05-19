@@ -536,8 +536,16 @@ input:checked+.slider:before {
     font-size: 1rem;
   }
 
+  #wilmxre .container,
+  #work .container,
+  #contact .container,
   #about .container {
     width: 90%;
+    padding-left: 2rem;
+  }
+
+  #wilmxre .container {
+    padding: 0 0 0 2rem;
   }
 
   #about .container h2 {
@@ -548,9 +556,6 @@ input:checked+.slider:before {
     font-size: .9rem;
   }
 
-  #contact .container {
-    width: 90%;
-  }
 
   #contact .container h2 {
     font-size: 1.35rem;
