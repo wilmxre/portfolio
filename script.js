@@ -209,9 +209,9 @@ const imgArray = [
   './photos/products-catalog.png',
   './photos/rps.png',
   './photos/sign-up-form.png',
-  './photos/smartphone-store.png'
-  // './photos/id1.png',
-  // './photos/id2.png',
+  './photos/smartphone-store.png',
+  './photos/id1.png',
+  './photos/id2.png'
   // './photos/id3.png',
   // './photos/id4.png',
   // './photos/id5.png'
@@ -349,7 +349,6 @@ replaceItems = () => {
   let includesIt = [];
   let includesIt2 = [];
   const loadedItems = document.querySelectorAll("#work > ul > li.work-item");
-  let i = 1;
   loadedItems.forEach((element, index) => {
     setTimeout(() => {
       const rand1 = new UniqueRandomGen(includesIt, checkWidth());
@@ -358,8 +357,11 @@ replaceItems = () => {
       randomCurrent = rand1.random();
       randomTotal = rand2.random();
 
+      console.log('-->', index, genArr)
       while (true) {
-        if (randomTotal in genArr) {
+        if (genArr.includes(randomTotal)) {
+          console.log({ randomTotal });
+          includesIt2.pop();
           randomTotal = rand2.random();
         }
         else break;
@@ -372,15 +374,15 @@ replaceItems = () => {
         linkArray[randomTotal];
       loadedItems[randomCurrent].childNodes[0].childNodes[1].src =
         imgArray[randomTotal];
-      loadedItems[randomCurrent].childNodes[0].childNodes[0].textContent =
-        i++;
 
 
       if (index == loadedItems.length - 1) {
         sleep(2000).then(() => replaceItems());
         console.log('***')
       }
-      // genArr = includesIt;
+
+      let temp = includesIt2;
+      if (temp.length == 4) genArr = temp;
     }, index * 2000);
   });
 }
@@ -441,7 +443,6 @@ const mobileMenu = () => {
 
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
-console.log(document.documentElement.style.getPropertyValue('--vh'))
 
 window.addEventListener('resize', () => {
   let vh = window.innerHeight * 0.01;
@@ -459,7 +460,12 @@ window.onload = () => {
   scrollWithKeys();
   reveal();
   generateItems(checkWidth());
-  // workSectionChecker();
+
+  if (checkWidth() <= 4) {
+    workSectionChecker();
+  }
+
+
   mobileMenu();
   window.addEventListener('scroll', reveal);
   window.addEventListener('wheel', scrollWithWheel, { passive: false });
