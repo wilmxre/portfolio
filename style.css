@@ -506,10 +506,9 @@ input:checked+.slider:before {
 @media only screen and (max-width: 500px) {
 
   body {
-    overflow: scroll;
-    scroll-behavior: auto;
     overflow-y: scroll !important;
     -webkit-overflow-scrolling: touch;
+    height: calc(100vh - calc(100vh - 100%))
   }
 
   .hamburger a {
