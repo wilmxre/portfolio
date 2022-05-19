@@ -317,10 +317,9 @@ const generateItems = (count) => {
       document.querySelectorAll("#work > ul > li > div > img").forEach((element, index) => {
         setTimeout(() => {
           element.classList.remove('hidden');
-          element.parentNode.parentNode.classList.add('box-shadow', 'fade-in', animationArr[index], 'fade-in');
-        }, index * 0); //replace 0 with bigger number for delay
+          element.parentNode.parentNode.classList.add('box-shadow', animationArr[index]);
+        }, index * 500); //replace 0 with bigger number for delay
       });
-
     }
 
   });
@@ -355,17 +354,19 @@ replaceItems = () => {
         else break;
       }
 
-      loadedItems[randomCurrent].childNodes[0].childNodes[0].href =
-        linkArray[randomTotal];
-      loadedItems[randomCurrent].childNodes[0].childNodes[1].src =
-        imgArray[randomTotal];
+      const img = loadedItems[randomCurrent].childNodes[0].childNodes[1];
+      const link = loadedItems[randomCurrent].childNodes[0].childNodes[0];
 
+      link.href = linkArray[randomTotal];
+      img.src = imgArray[randomTotal];
+      img.parentNode.parentNode.classList.toggle('flip-in-hor-bottom');
       if (index == loadedItems.length - 1) {
         sleep(5000).then(() => replaceItems());
       }
 
       let temp = includesIt2;
       if (temp.length == checkWidth()) genArr = temp;
+
     }, index * 2000);
   });
 }
@@ -447,7 +448,6 @@ window.onload = () => {
   if (checkWidth() <= 4) {
     workSectionChecker();
   }
-
 
   mobileMenu();
   window.addEventListener('scroll', reveal);
